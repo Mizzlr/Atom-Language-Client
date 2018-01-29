@@ -7,6 +7,7 @@ class DevfactoryLanguageClient extends AutoLanguageClient {
   getServerName () { return 'Devfactory LanguageServer' }
 
   startServerProcess () {
+    console.log('Starting Devfactory LanguageServer')
     return spawn('langserver', ['-vv'])
   }
 }
