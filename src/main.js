@@ -1,4 +1,4 @@
-import * as cp from 'child_process';
+const {spawn} = require('child_process')
 const {AutoLanguageClient} = require('atom-languageclient')
 
 class DevfactoryLanguageClient extends AutoLanguageClient {
@@ -7,7 +7,7 @@ class DevfactoryLanguageClient extends AutoLanguageClient {
   getServerName () { return 'Devfactory LanguageServer' }
 
   startServerProcess () {
-    return cp.spawn('langserver', ['-vv'])
+    return spawn('langserver', ['-vv'])
   }
 }
 
