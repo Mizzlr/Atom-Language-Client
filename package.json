@@ -1,15 +1,14 @@
 {
   "name": "devfactory-language-client",
   "main": "./src/main",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Devfactory Language Client.",
   "license": "Proprietary",
   "repository": {
     "type": "git",
     "url": "https://github.com/mizzlr/Atom-Language-Client.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "engines": {
     "atom": ">=1.21.0"
   },
