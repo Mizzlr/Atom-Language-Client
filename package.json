@@ -1,7 +1,7 @@
 {
   "name": "devfactory-language-client",
   "main": "./src/main",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Devfactory Language Client.",
   "license": "Proprietary",
   "repository": {
