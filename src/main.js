@@ -1,4 +1,5 @@
 const {spawn} = require('child_process')
+const { shell } = require("electron");
 const {AutoLanguageClient} = require('atom-languageclient')
 
 class DevfactoryLanguageClient extends AutoLanguageClient {
@@ -6,9 +7,17 @@ class DevfactoryLanguageClient extends AutoLanguageClient {
   getLanguageName () { return 'Java' }
   getServerName () { return 'Devfactory LanguageServer' }
 
-  startServerProcess () {
+  async startServerProcess (projectPath) {
+    await new Promise(resolve => atom.whenShellEnvironmentLoaded(resolve));
+
+    const environment = Object.assign({}, process.env);
+
     console.log('Starting Devfactory LanguageServer')
-    const childProcess = cp.spawn('langserver', ['-vv'])
+    const childProcess = spawn('langserver', {
+      cwd: projectPath,
+      env: environment
+    })
+
     childProcess.on("error", err =>
       atom.notifications.addError("Unable to start the Devfactory language server.", {
         dismissable: true,
